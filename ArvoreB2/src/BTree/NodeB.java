@@ -12,7 +12,7 @@ class NodeB {
 		this.n = 0;
 		
 		this.infos = new Integer[M];
-		this.filhos = new NodeB[M];
+		this.filhos = new NodeB[M+1];
 	}
 
 	public int getN() {
