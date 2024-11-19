@@ -150,4 +150,97 @@ public class B {
 			}
 		}
 	}
+
+	private Search maiorChave(int valor){
+        if(this.root == null){
+            Search maior = new Search(null, -1);
+
+            return maior;
+        }
+        else{
+            NodeB atual = this.root;
+
+            while(!atual.isLeaf()){
+                atual = atual.getFilhos(atual.getN() - 1);
+            }
+
+            Search maior = new Search(atual, atual.getN()-1);
+            
+            return maior;
+            
+        }
+    }
+
+    public void buscaMaior(int valor){
+        Search buscaMaior;
+
+        buscaMaior = maiorChave(valor);
+
+        if(buscaMaior.getEndereco() == null){
+            System.out.println("Árvore vazia!");
+        }
+        else{
+            NodeB aux = buscaMaior.getEndereco();
+            System.out.printf("Maior valor: %d\n", aux.getInfos(buscaMaior.getPosicao()));
+        }
+    }
+
+    private Search menorChave(int valor){
+        if(this.root == null){
+            Search menor = new Search(null, -1);
+
+            return menor;
+        }
+        else{
+            NodeB atual = this.root;
+
+            while(!atual.isLeaf()){
+                atual = atual.getFilhos(0);
+            }
+
+            Search menor = new Search(atual, 0);
+
+            return menor;
+        }
+    }
+
+    public void buscaMenor(int valor){
+        Search buscaMenor = menorChave(valor);
+
+        if(buscaMenor.getEndereco() == null){
+            System.out.println("Árvore vazia!");
+        }
+        else{
+            NodeB aux = buscaMenor.getEndereco();
+            System.out.printf("Maior valor: %d\n", aux.getInfos(buscaMenor.getPosicao()));
+        }
+    }
+
+    public int alturaArvore(){
+        if(this.root == null){
+            return -1;
+        }
+        else{
+            int cont = 0;
+            NodeB atual = this.root;
+
+            while(!atual.isLeaf()){
+                atual = atual.getFilhos(0);
+                cont++;
+            }
+
+            return cont;
+        }
+    }
+
+    private Search buscaValor(int valor){
+        if(this.root == null){
+            Search busca = new Search(null, -1);
+
+            return busca;
+        }
+        else{
+            NodeB atual = this.root;
+        }
+    }
 }
